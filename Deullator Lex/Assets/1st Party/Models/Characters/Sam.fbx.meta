@@ -49,6 +49,12 @@ ModelImporter:
     100082: mixamorig:Spine1
     100084: mixamorig:Spine2
     100086: //RootNode
+    100088: Eyes
+    100090: mixamorig:HeadTop_End_end_end
+    100092: mixamorig:LeftHandIndex4_end_end
+    100094: mixamorig:LeftToe_End_end_end
+    100096: mixamorig:RightHandIndex4_end_end
+    100098: mixamorig:RightToe_End_end_end
     400000: Armature
     400002: Cube
     400004: Cube.001
@@ -93,6 +99,12 @@ ModelImporter:
     400082: mixamorig:Spine1
     400084: mixamorig:Spine2
     400086: //RootNode
+    400088: Eyes
+    400090: mixamorig:HeadTop_End_end_end
+    400092: mixamorig:LeftHandIndex4_end_end
+    400094: mixamorig:LeftToe_End_end_end
+    400096: mixamorig:RightHandIndex4_end_end
+    400098: mixamorig:RightToe_End_end_end
     2100000: Material.001
     2100002: Material.002
     2100004: Material.004
@@ -102,13 +114,17 @@ ModelImporter:
     4300002: Cube.003
     4300004: Cube.002
     4300006: Cube.001
+    4300008: Eyes
     7400000: Armature|ArmatureAction
     7400002: Armature|Armature|mixamo.com|Layer0
+    7400004: Armature|Armature|Armature|ArmatureAction|Armature|ArmatureAction
+    7400006: Armature|Armature|Armature|Armature|mixamo.com|Layer0|Armature|Armature|
     9500000: //RootNode
     13700000: Cube
     13700002: Cube.001
     13700004: Cube.002
     13700006: Cube.003
+    13700008: Eyes
   externalObjects: {}
   materials:
     importMaterials: 1

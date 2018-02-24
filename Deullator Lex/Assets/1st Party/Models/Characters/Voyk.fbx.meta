@@ -488,6 +488,19 @@ ModelImporter:
     100960: Sphere|Circle|Dupli|98.0.0.0.0.0.0.0.0.0
     100962: Sphere|Circle|Dupli|99.0.0.0.0.0.0.0.0.0
     100964: //RootNode
+    100966: Body
+    100968: Circle
+    100970: Eyes
+    100972: Hair Base
+    100974: Hemi
+    100976: mixamorig:HeadTop_End_end_end
+    100978: mixamorig:HeadTop_End_end_end_end
+    100980: mixamorig:LeftToe_End_end_end
+    100982: mixamorig:LeftToe_End_end_end_end
+    100984: mixamorig:RightToe_End_end_end
+    100986: mixamorig:RightToe_End_end_end_end
+    100988: Pants
+    100990: Shirt
     400000: Armature
     400002: Cube.002
     400004: Cube.003
@@ -971,12 +984,28 @@ ModelImporter:
     400960: Sphere|Circle|Dupli|98.0.0.0.0.0.0.0.0.0
     400962: Sphere|Circle|Dupli|99.0.0.0.0.0.0.0.0.0
     400964: //RootNode
+    400966: Body
+    400968: Circle
+    400970: Eyes
+    400972: Hair Base
+    400974: Hemi
+    400976: mixamorig:HeadTop_End_end_end
+    400978: mixamorig:HeadTop_End_end_end_end
+    400980: mixamorig:LeftToe_End_end_end
+    400982: mixamorig:LeftToe_End_end_end_end
+    400984: mixamorig:RightToe_End_end_end
+    400986: mixamorig:RightToe_End_end_end_end
+    400988: Pants
+    400990: Shirt
     2100000: Shirt
     2100002: Material.010
     2100004: Hair
     2100006: Material.002
     2100008: Material.001
     2100010: Material.005
+    2100012: Material.009
+    2100014: Material.006
+    2100016: Material.004
     2300000: Sphere|Circle|Dupli|0.0.0.0.0.0.0.0.0.0
     2300002: Sphere|Circle|Dupli|1.0.0.0.0.0.0.0.0.0
     2300004: Sphere|Circle|Dupli|10.0.0.0.0.0.0.0.0.0
@@ -1411,6 +1440,7 @@ ModelImporter:
     2300862: Sphere|Circle|Dupli|97.0.0.0.0.0.0.0.0.0
     2300864: Sphere|Circle|Dupli|98.0.0.0.0.0.0.0.0.0
     2300866: Sphere|Circle|Dupli|99.0.0.0.0.0.0.0.0.0
+    2300868: Circle
     3300000: Sphere|Circle|Dupli|0.0.0.0.0.0.0.0.0.0
     3300002: Sphere|Circle|Dupli|1.0.0.0.0.0.0.0.0.0
     3300004: Sphere|Circle|Dupli|10.0.0.0.0.0.0.0.0.0
@@ -1845,10 +1875,17 @@ ModelImporter:
     3300862: Sphere|Circle|Dupli|97.0.0.0.0.0.0.0.0.0
     3300864: Sphere|Circle|Dupli|98.0.0.0.0.0.0.0.0.0
     3300866: Sphere|Circle|Dupli|99.0.0.0.0.0.0.0.0.0
+    3300868: Circle
     4300000: Cube.002
     4300002: Sphere
     4300004: Sphere|Circle|Dupli|0.0.0.0.0.0.0.0.0.0
     4300006: Cube.003
+    4300008: Circle
+    4300010: Eyes
+    4300012: Shirt
+    4300014: Pants
+    4300016: Hair Base
+    4300018: Body
     7400000: Armature|G.016Action
     7400002: Armature|Idle
     7400004: Armature|Kick Str
@@ -1859,10 +1896,18 @@ ModelImporter:
     7400014: Armature|Push
     7400016: Armature|Sweep
     7400018: Armature|Sweep.002
+    7400020: Armature|Armature|Armature|Armature|Armature|ArmatureAction|Armature|Arm
+    7400022: Armature|Armature|Armature|Armature|Armature|Armature|mixamo.com|Layer0|
     9500000: //RootNode
+    10800000: Hemi
     13700000: Cube.002
     13700002: Cube.003
     13700004: Sphere
+    13700006: Body
+    13700008: Eyes
+    13700010: Hair Base
+    13700012: Pants
+    13700014: Shirt
   externalObjects: {}
   materials:
     importMaterials: 1
