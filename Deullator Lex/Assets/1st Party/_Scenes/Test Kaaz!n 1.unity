@@ -656,7 +656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &281249599
 Transform:
   m_ObjectHideFlags: 0
@@ -3313,7 +3313,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: mvg I echo fox I mkleo
+  m_Text: Kaaz!n
 --- !u!222 &1292506643
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3538,7 +3538,7 @@ MonoBehaviour:
   youwin: {fileID: 1524318820}
   _timeLeft: 99
   timeLeft: {fileID: 913353728}
-  startDelay: 0
+  startDelay: 3
   delayTimer: 0
 --- !u!4 &1363436538
 Transform:
@@ -4796,7 +4796,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: mvg I echo fox I mew2king
+  m_Text: sonicfox
 --- !u!222 &1705867927
 CanvasRenderer:
   m_ObjectHideFlags: 0
