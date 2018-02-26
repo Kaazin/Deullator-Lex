@@ -14,6 +14,7 @@ public class EnergyBar : MonoBehaviour
 	float timer;
 
 
+
 	Slider energyBar;
 	public bool isPlayer1 = true; 
 	void Awake()
