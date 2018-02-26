@@ -3868,6 +3868,16 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 2f5e28b8bbf4cb44b821b02932270155, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed by
+        Humanoid clips.\n\tTransform 'mixamorig_LeftLeg'\n\tTransform 'mixamorig_Head'\n\tTransform
+        'mixamorig_Spine2'\n\tTransform 'mixamorig_RightHand'\n\tTransform 'mixamorig_RightHandIndex2'\n\tTransform
+        'mixamorig_Hips'\n\tTransform 'mixamorig_LeftHandIndex2'\n\tTransform 'mixamorig_LeftFoot'\n\tTransform
+        'mixamorig_RightLeg'\n\tTransform 'mixamorig_RightToeBase'\n\tand more ...\n\tFrom
+        animation clip 'Sweep'"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f5e28b8bbf4cb44b821b02932270155, type: 3}
   m_IsPrefabParent: 0
