@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour
 {
-
+	//you had timeLeft as the name of both the int and text variable and so I put an underscore on the int one to take away the error :)
     public GameObject youwin;
-    public int timeLeft = 300f;
 
-	public text timeLeft
+	//in order to subtract Time.deltaTime your variable needs to be a float
+	public float _timeLeft = 300f;
+
+	public Text timeLeft;
 
     void Update() {
-        timeLeft -= Time.deltaTime;
+        _timeLeft -= Time.deltaTime;
         timeLeft.text = "300" + timeLeft;
 	}
 	
