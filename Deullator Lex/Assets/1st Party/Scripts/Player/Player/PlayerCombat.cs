@@ -9,7 +9,7 @@ public class PlayerCombat : MonoBehaviour
 	// Use this for initialization
 	void Awake () 
 	{
-		anim = GetComponent<Animator> ();
+		anim = GetComponentInChildren<Animator> ();
 	}
 	
 	// Update is called once per frame

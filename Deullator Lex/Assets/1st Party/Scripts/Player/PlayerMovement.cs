@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 	void Update ()
 	{
 		//fix the player's position on the Z axis
-		transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+		//transform.position = new Vector3(transform.position.x, transform.position.y, 0);
 
 		//declare variables for movemnt on axes
 		float moveH = Input.GetAxis ("Horizontal") * speed;
