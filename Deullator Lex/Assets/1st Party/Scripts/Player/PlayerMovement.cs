@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 		//if the warp button is pressed and we have enough energy we should warp
-		if (Input.GetButtonDown ("Warp") && energyBar.currentValue >=  100/3)
+		if (Input.GetButtonDown ("Warp") && energyBar.currentEnergy >=  100/3)
 			Warp ();
 
 			

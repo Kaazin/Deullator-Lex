@@ -6,102 +6,74 @@ public class EnergyBar : MonoBehaviour
 {
 
 
-	public float maxValue;
-
-	public float currentValue;
-
-	public float multiplier = 10;
+	public float maxEnergy;
+	public float currentEnergy;
+	public bool dead;
 	float timer;
 
+	Slider[] energyBars = new Slider[5];
+	Slider []bars;
+	int energyBarIndex = 0;
+	Slider activeEnergybar;
 
 	public bool useEnergy;
-
-	Slider[] energyBar;
-	public bool isPlayer1 = true; 
-
-	//Animator anim;
-
-	public int energyBarIndex = 0;
-	Slider activeEnergyBar;
-	Transform p2;
-	int i = 0;
-
-	void Awake()
+	void Awake () 
 	{
-		currentValue = maxValue;
+		bars = GameObject.FindGameObjectWithTag ("p1NRG").GetComponentsInChildren<Slider> ();
 
-		if (isPlayer1)
-			energyBar = GameObject.FindGameObjectWithTag ("p1NRG").GetComponentsInChildren<Slider> ();
+		energyBars [0] = bars[4];
+		energyBars [1] = bars[3];
+		energyBars [2] = bars[2];
+		energyBars [3] = bars[1];
+		energyBars [4] = bars[0];
 
-		else
-			energyBar = GameObject.FindGameObjectWithTag ("p2NRG").GetComponentsInChildren<Slider> ();
+		currentEnergy = maxEnergy;
 
-		activeEnergyBar = energyBar [energyBarIndex];
+		activeEnergybar = energyBars[0];
 
-		//for each slider in energy bar....
-		foreach (Slider h in energyBar) 
+		foreach (Slider h in energyBars) 
 		{
-			//increment i
-			i++;
-
-			//if I is less than the health bar index
-			if (i <= energyBarIndex)
-				//set the value of h to maxValue
-				h.value = maxValue;
-
-
+			h.value = maxEnergy;
 		}
+
+
 	}
 
-	void Update()
+	void Update ()
 	{
-		if (energyBarIndex <= energyBar.Length - 1)
-		{
-			activeEnergyBar = energyBar [energyBarIndex];
 
-			activeEnergyBar.value = currentValue; 
+		Testing ();
+
+		if (energyBarIndex <= energyBars.Length - 1)
+		{
+			activeEnergybar = energyBars [energyBarIndex];
+
+			activeEnergybar.value = currentEnergy;
 		}	
-	
-		activeEnergyBar.value = currentValue;
-
-		if (currentValue < maxValue) 
-		{
-			currentValue += Time.deltaTime * multiplier;
-		}
-
-		if (activeEnergyBar.value <= 0)
-			DestroySlider ();
-		if (Input.GetKeyDown (KeyCode.E))
-			useEnergy = !useEnergy;
-
-		if (useEnergy)
-			UseEnergy (20 * Time.deltaTime);
-
-			
 	}
-
 
 	public void UseEnergy(float amount)
 	{
-		currentValue -= amount;
+		currentEnergy -= amount;
+
+		if (currentEnergy <= 0) 
+		{
+			ActivateNextSlider ();
+		}
+
 	}
 
-	void DestroySlider()
+	void ActivateNextSlider()
 	{
-
-
-		//if the current energybar is less than the amount of energy bars we have
-		if 	(energyBarIndex < energyBar.Length - 1)
+		if (energyBarIndex < energyBars.Length - 1) 
 		{
-
-			//increment the energybar index
 			energyBarIndex++;
-
-			//set current Energy to max Energy
-			currentValue = maxValue;
+			currentEnergy = maxEnergy;
 		}
 
 
 
 	}
+
+
 }
