@@ -59,11 +59,11 @@ public class PlayerMovement : MonoBehaviour
 
 		//if there is horizotnal movement on the stick we should play the walking animation
 
-		if (dir.z > 0)
+		if (dir.z < 0)
 			anim.SetBool ("WalkF", true);
 		else
 			anim.SetBool ("WalkF", false);
-		if (dir.z < 0)
+		if (dir.z > 0)
 			anim.SetBool ("WalkB", true);
 		else
 			anim.SetBool ("WalkB", false);
@@ -90,10 +90,9 @@ void Warp()
 		warpEffect.GetComponent<ParticleSystem> ().Play ();
 
 		//disbale the mesh gameobject so we "diappear"
-		mesh.SetActive (false);
-
+		mesh.SetActive(false);
 		//move during the warp
-		transform.position = transform.position + new Vector3 (Input.GetAxisRaw ("Horizontal") * warpDistance, Input.GetAxisRaw ("Vertical") * warpDistance, 0);
+		transform.position = transform.position + new Vector3 (0, Input.GetAxisRaw ("Vertical") * warpDistance, -Input.GetAxisRaw ("Horizontal") * warpDistance);
 
 		//play the warp sound
 		warpSound.PlayOneShot (warpSound.clip);

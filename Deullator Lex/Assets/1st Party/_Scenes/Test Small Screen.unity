@@ -272,7 +272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: 0}
+  m_AnchoredPosition: {x: 113, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &168502557
@@ -2061,6 +2061,21 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 198343586659043490, guid: 6905a8b7e49a9844692ef1f818c891cf,
+        type: 2}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198343586659043490, guid: 6905a8b7e49a9844692ef1f818c891cf,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198343586659043490, guid: 6905a8b7e49a9844692ef1f818c891cf,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1330552494
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6905a8b7e49a9844692ef1f818c891cf, type: 2}
   m_IsPrefabParent: 0
@@ -2940,10 +2955,10 @@ RectTransform:
   m_Father: {fileID: 1640476752}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 53, y: 100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000030518, y: 0}
+  m_SizeDelta: {x: -0.000099182, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913353728
 MonoBehaviour:
@@ -2971,7 +2986,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3140,7 +3155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15, y: 0}
+  m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1050660374
@@ -4357,7 +4372,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1404442174}
-  - component: {fileID: 1404442173}
   - component: {fileID: 1404442175}
   - component: {fileID: 1404442171}
   - component: {fileID: 1404442172}
@@ -4393,7 +4407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69683c30ecd4de44915066ee073f6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: -2
   IsPlayer1: 1
   warpDistance: 5
   warpSound: {fileID: 1404442176}
@@ -4401,24 +4415,6 @@ MonoBehaviour:
   warpEffect: {fileID: 1511622972}
   dir: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
---- !u!95 &1404442173
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 9500000, guid: 2f5e28b8bbf4cb44b821b02932270155,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1404442170}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: 2f5e28b8bbf4cb44b821b02932270155, type: 3}
-  m_Controller: {fileID: 9100000, guid: ff46bfd871cc6ec48876fbcbdf435b0f, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &1404442174
 Transform:
   m_ObjectHideFlags: 0
@@ -5498,7 +5494,7 @@ GameObject:
   - component: {fileID: 1646055796}
   - component: {fileID: 1646055795}
   m_Layer: 0
-  m_Name: GameMusic
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5510,7 +5506,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1646055794}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7314aae8578c3674bb41427387c6ac5d, type: 3}
