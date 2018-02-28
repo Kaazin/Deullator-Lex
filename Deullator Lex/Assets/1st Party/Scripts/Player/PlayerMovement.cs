@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 		//assign a value to dir
-		dir = new Vector3 (moveH, dir.y, 0);
+		dir = new Vector3 (0, dir.y, moveH);
 		//transform.Translate (dir * Time.deltaTime);
 
 		//add velocity to the rigidbody
@@ -59,11 +59,11 @@ public class PlayerMovement : MonoBehaviour
 
 		//if there is horizotnal movement on the stick we should play the walking animation
 
-		if (moveH > 0)
+		if (dir.z > 0)
 			anim.SetBool ("WalkF", true);
 		else
 			anim.SetBool ("WalkF", false);
-		if (moveH < 0)
+		if (dir.z < 0)
 			anim.SetBool ("WalkB", true);
 		else
 			anim.SetBool ("WalkB", false);
