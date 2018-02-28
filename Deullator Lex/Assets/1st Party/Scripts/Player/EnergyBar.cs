@@ -14,7 +14,7 @@ public class EnergyBar : MonoBehaviour
 	int energyBarIndex = 0;	//the array index of the energy bars
 	Slider activeEnergybar;	//the active energy bar
 	float combinedEnergy; 	//the starting amount of energy when all of the sliders are added together
-	float currentCombinedEnergy;	//the current amount of energy combined
+	public float currentCombinedEnergy;	//the current amount of energy combined
 
 	void Awake () 
 	{
@@ -40,7 +40,10 @@ public class EnergyBar : MonoBehaviour
 		}
 
 		//assign a value to combined energy
-		combinedEnergy = bars.Length * energyBars[0].maxValue;
+		combinedEnergy = bars.Length * maxEnergy;
+
+		currentCombinedEnergy = combinedEnergy;
+		Debug.Log (combinedEnergy);
 
 	}
 
@@ -64,6 +67,7 @@ public class EnergyBar : MonoBehaviour
 	{ 
 		//subtract the amount from the current energy
 		currentEnergy -= amount;
+		currentCombinedEnergy -= amount;
 
 		//if there is no energy left on this slider
 		if (currentEnergy <= 0) 

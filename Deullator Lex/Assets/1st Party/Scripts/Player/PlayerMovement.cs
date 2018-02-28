@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 		//if the warp button is pressed and we have enough energy we should warp
-		if (Input.GetButtonDown ("Warp") && energyBar.currentEnergy >=  100/3)
+		if (Input.GetButtonDown ("Warp") && energyBar.currentCombinedEnergy > (100/3))
 			Warp ();
 
 			
@@ -80,10 +80,14 @@ public class PlayerMovement : MonoBehaviour
 void Warp()
 	{
 		//take away some energy
-		energyBar.UseEnergy (100/ 3);
+		energyBar.UseEnergy (100 / 3);
 
 		//disbale box colliders so we don't bump into anythng while warping
-		GetComponent<BoxCollider> ().isTrigger = false;
+		GetComponent<BoxCollider> ().isTrigger = true;
+
+		//play the warp effect
+		warpEffect.GetComponent<ParticleSystem> ().Stop ();		
+		warpEffect.GetComponent<ParticleSystem> ().Play ();
 
 		//disbale the mesh gameobject so we "diappear"
 		mesh.SetActive (false);
@@ -95,7 +99,8 @@ void Warp()
 		warpSound.PlayOneShot (warpSound.clip);
 
 		//enable the warp effect
-		warpEffect.SetActive (true);
+		warpEffect.GetComponent<ParticleSystem> ().Stop ();
+		warpEffect.GetComponent<ParticleSystem> ().Play ();
 
 		//begin to appear
 		StartCoroutine (Appear());
@@ -104,18 +109,22 @@ void Warp()
 
 		IEnumerator Appear()
 		{
-		//disable the warp effect
-		warpEffect.SetActive (false);
 		//wait for a thenth of a second
 		yield return new WaitForSeconds (.1f);
-		//play the waarp effect again
-		warpEffect.SetActive (true);
+
+		//warpEffect.SetActive (false);
+
+		//play the warp effect again
+		warpEffect.GetComponent<ParticleSystem> ().Stop ();
+		warpEffect.GetComponent<ParticleSystem> ().Play ();
+
 		//enable the mesh
 		mesh.SetActive (true);
+
 		//disbale the warp effect
-		warpEffect.SetActive (false);
 		//stop the player's movement
 		transform.position = transform.position;
+
 		//rb.velocity = dir;
 		//reenable collisions
 		GetComponent<BoxCollider> ().isTrigger = true;
