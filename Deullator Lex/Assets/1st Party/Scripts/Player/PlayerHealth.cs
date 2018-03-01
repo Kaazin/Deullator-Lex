@@ -10,13 +10,13 @@ public class PlayerHealth : MonoBehaviour
 	Slider[] healthBar;	//the main health bar
 
 	public bool takeDamage;
-
+	public bool isPlayer1;
 	void Awake ()
 	{
 		currentHealth = maxHealth;
 
 		//set up the references
-		if(GetComponent<PlayerMovement>().IsPlayer1)
+		if(isPlayer1)
 		healthBar = GameObject.Find("p1HealthBar").GetComponentsInChildren<Slider>();
 		else
 		healthBar = GameObject.Find("p2HealthBar").GetComponentsInChildren<Slider>();
@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
 
 	}
 		
-	void TakeDamage(float amount)
+	public void TakeDamage(float amount)
 	{
 		currentHealth -= amount;
 
