@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+	public float time = 0.5f;
+
 	Animator anim;
 
-	// Use this for initialization
 	void Awake () 
 	{
 		anim = GetComponentInChildren<Animator> ();
@@ -15,57 +16,95 @@ public class PlayerCombat : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{	
-		//if punch wk button is pessed play punch wk animation otherwise go back to idle
-		if (Input.GetButtonDown ("Punch Wk") && Input.GetAxis("Horizontal") == 0  && Input.GetAxis("Vertical") == 0)
-			anim.SetBool ("Punch Wk", true);
+		//if Wk button is pessed play set animator state wk to true and start the reset coroutine 
+		if (Input.GetButtonDown ("Wk") && Input.GetAxis ("Horizontal") == 0 && Input.GetAxis ("Vertical") == 0) 
+		{
+			anim.SetBool ("Wk", true);
+			StartCoroutine (ResetWk (time));
+		}
+
+		//if Str button is pessed play set animator state str to true and start the reset coroutine 
+
+		if (Input.GetButtonDown ("Str") && Input.GetAxis("Horizontal") == 0 &&  Input.GetAxis("Vertical") == 0)
+		{
+			anim.SetBool ("Str", true);
+			StartCoroutine (ResetStr (time));
+		}
+
+		//if <eded button is pessed play set animator state str to true and start the reset coroutine 
+
+		if (Input.GetButtonDown ("Med") && Input.GetAxis("Horizontal") == 0 &&  Input.GetAxis("Vertical") == 0)
+		{
+			anim.SetBool ("Med", true);
+			StartCoroutine (ResetMed (time));
+		}
+		//if Spec button is pessed play set animator state str to true and start the reset coroutine 
+
+		if (Input.GetButtonDown ("Spec") && Input.GetAxis ("Horizontal") == 0 && Input.GetAxis ("Vertical") == 0) {
+			anim.SetBool ("Spec", true);
+		} 
 		else
-			anim.SetBool ("Punch Wk", false);
-
-		//if punch str button is pessed play punch str animation otherwise go back to idle
-
-		if (Input.GetButtonDown ("Punch Str") && Input.GetAxis("Horizontal") == 0 &&  Input.GetAxis("Vertical") == 0)
-			anim.SetBool ("Punch Str", true);
-		else
-			anim.SetBool ("Punch Str", false);
-
-		//if kick wk button is pessed play kick wk animation otherwise go back to idle
-
-		if (Input.GetButtonDown ("Kick Wk") && Input.GetAxis("Horizontal") == 0 &&  Input.GetAxis("Vertical") == 0)
-			anim.SetBool ("Kick Wk", true);
-		else
-			anim.SetBool ("Kick Wk", false);
-
-		//if kick Str button is pessed play kick Str animation otherwise go back to idle
-
-		if (Input.GetButtonDown ("Kick Str") && Input.GetAxis("Horizontal") == 0 &&  Input.GetAxis("Vertical") == 0)
-			anim.SetBool ("Kick Str", true);
-		else
-			anim.SetBool ("Kick Str", false);
-
+			anim.SetBool ("Spec", false);
+		
 		//if any attack button is pressed and horizontal axis is pressed in either direction and vertical axis reads nothing
-		if ((Input.GetButtonDown ("Kick Str") || Input.GetButtonDown ("Kick Wk") || Input.GetButtonDown ("Punch Str") || Input.GetButtonDown ("Punch Wk") ) && 
+		if ((Input.GetButtonDown ("Spec") || Input.GetButtonDown ("Wk") || Input.GetButtonDown ("Str") || Input.GetButtonDown ("Med")) && 
 			Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") == 0)
+		{
 			anim.SetBool ("Push", true);
-		else
-			anim.SetBool ("Push", false);
+		}
 		
 		//if any attack button is pressed and Vertical axis is pressed in up and Horizontal axis reads nothing
-		if ((Input.GetButtonDown ("Kick Str") || Input.GetButtonDown ("Kick Wk") || Input.GetButtonDown ("Punch Str") || Input.GetButtonDown ("Punch Wk") ) && 
+		if ((Input.GetButtonDown ("Spec") || Input.GetButtonDown ("Wk") || Input.GetButtonDown ("Str") || Input.GetButtonDown ("Med")) && 
 			Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") > 0)
+		{
 			anim.SetBool ("Popup", true);
-		else
-			anim.SetBool ("Popup", false);
+			StartCoroutine (ResetPopup (time));
+		}
 
 		//if any attack button is pressed and Vertical axis is pressed in down and Horizontal axis reads nothing
-		if ((Input.GetButtonDown ("Kick Str") || Input.GetButtonDown ("Kick Wk") || Input.GetButtonDown ("Punch Str") || Input.GetButtonDown ("Punch Wk") ) && 
+		if ((Input.GetButtonDown ("Spec") || Input.GetButtonDown ("Wk") || Input.GetButtonDown ("Str") || Input.GetButtonDown ("Med")) && 
 			Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") < 0)
+		{
 			anim.SetBool ("Sweep", true);
-		else
-			anim.SetBool ("Sweep", false);
+			StartCoroutine (ResetSweep (time));
+		}
 
 	}
 
+	IEnumerator ResetWk(float time)
+	{
+		yield return new WaitForSeconds (time);
+		anim.SetBool ("Wk", false);	
+	}
+	IEnumerator ResetMed(float time)
+	{
+		yield return new WaitForSeconds (time);
+		anim.SetBool ("Med", false);	
+	}
+	IEnumerator ResetStr(float time)
+	{
+		yield return new WaitForSeconds (time);
 
+		anim.SetBool ("Str", false);	
+	}
 
+	IEnumerator ResetSweep(float time)
+	{
+		yield return new WaitForSeconds (time);
+
+		anim.SetBool ("Sweep", false);	
+	}
+	IEnumerator ResetPopup(float time)
+	{
+		yield return new WaitForSeconds (time);
+
+		anim.SetBool ("Popup", false);	
+	}
+	IEnumerator ResetPush(float time)
+	{
+		yield return new WaitForSeconds (time);
+
+		anim.SetBool ("Push", false);	
+	}
 
 }
