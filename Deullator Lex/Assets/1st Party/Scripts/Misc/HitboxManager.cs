@@ -52,24 +52,4 @@ public class HitboxManager : MonoBehaviour
 	{
 		Hitboxes [1].enabled = false;
 	}
-
-
-	public void SweepHit()
-	{
-		//if (hit.hit = true) 
-	}
-
-	public void PopupHit()
-	{
-
-	}
-
-	public void PushHit()
-	{
-
-	}
-
-
-
-
 }

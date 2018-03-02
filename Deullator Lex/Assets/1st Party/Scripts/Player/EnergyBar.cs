@@ -43,8 +43,6 @@ public class EnergyBar : MonoBehaviour
 		combinedEnergy = bars.Length * maxEnergy;
 
 		currentCombinedEnergy = combinedEnergy;
-		Debug.Log (combinedEnergy);
-
 	}
 
 	void Update ()

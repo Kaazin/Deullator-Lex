@@ -11,11 +11,21 @@ public class DetectHit : MonoBehaviour
 	public float sweepKb;
 	public float popupKb;
 	public float pushKb;
+
+	bool addedForce = false;
 	public string name;
 
+	GameObject root;
+	Animator anim;
 	public Rigidbody hitObject;
 
 	public bool hit;
+
+	void Awake()
+	{
+		root = transform.root.gameObject;
+		anim = root.GetComponentInChildren<Animator> ();
+	}
 
 	void OnTriggerEnter(Collider col)
 	{
@@ -27,6 +37,28 @@ public class DetectHit : MonoBehaviour
 			Debug.Log (col.transform.root.name);
 			playerHealth.TakeDamage (amount);
 			hit = true;
+
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Popup") && !addedForce)
+			{
+				Debug.Log ("popup");
+				AddKnockback (col.GetComponent<Rigidbody> (), sweepKb, sweepAngle, Vector3.right);
+				addedForce = true;
+			}
+
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Sweep") && !addedForce)
+			{
+				Debug.Log ("Sweep");
+				AddKnockback (col.GetComponent<Rigidbody> (), sweepKb, sweepAngle, Vector3.right);
+				addedForce = true;
+			}
+
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Push") && !addedForce)
+			{
+				Debug.Log ("Push");
+				AddKnockback (col.GetComponent<Rigidbody> (), pushKb, pushAngle, -Vector3.forward);
+				addedForce = true;
+			}
+
 		}
 	}
 
@@ -36,9 +68,35 @@ public class DetectHit : MonoBehaviour
 			if (playerHealth != null) 
 			{
 				hit = false;
+
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Popup") && !addedForce)
+			{
+				Debug.Log ("popup");
+				AddKnockback (col.GetComponent<Rigidbody> (), popupKb, popupAngle, Vector3.right);
+				addedForce = true;
 			}
+
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Sweep") && !addedForce)
+			{
+				Debug.Log ("Sweep");
+				AddKnockback (col.GetComponent<Rigidbody> (), sweepKb, sweepAngle, Vector3.right);
+				addedForce = true;
+			}
+
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Push") && !addedForce)
+			{
+				Debug.Log ("Push");
+				AddKnockback (col.GetComponent<Rigidbody> (), pushKb, pushAngle, -Vector3.forward);
+				addedForce = true;
+			}
+
+		}
+
+
+
 		}
 		
+
 
 	void OnTriggerExit(Collider col)
 	{
@@ -46,15 +104,16 @@ public class DetectHit : MonoBehaviour
 		if (playerHealth != null) 
 		{
 			hit = false;
+			addedForce = false;
 		}
 	}
 
-	public void AddKnockback(Rigidbody rb, float kb, float launchAngle)
+	public void AddKnockback(Rigidbody rb, float kb, float launchAngle, Vector3 velocity)
 	{ 
 		if (hitObject != null) 
 		{
-			Vector3 dir = Quaternion.AngleAxis (launchAngle, Vector3.forward) * Vector3.right;
-			rb.AddForce (dir * kb);
+			Vector3 dir = Quaternion.AngleAxis (launchAngle, Vector3.forward) * velocity;
+			rb.velocity = dir * kb;
 		} 
 		else
 			return;
