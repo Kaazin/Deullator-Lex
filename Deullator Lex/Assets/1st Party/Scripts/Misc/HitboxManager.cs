@@ -7,10 +7,13 @@ public class HitboxManager : MonoBehaviour
 	BoxCollider[] Hitboxes;
 	int i = 0;
 
+	DetectHit hit;
+
 	void Awake()
 	{
 		Hitboxes = GetComponentsInChildren<BoxCollider> ();
 
+		hit = GetComponent<DetectHit> ();
 		foreach (BoxCollider h in Hitboxes) 
 		{ 
 			i++;
@@ -49,5 +52,24 @@ public class HitboxManager : MonoBehaviour
 	{
 		Hitboxes [1].enabled = false;
 	}
+
+
+	public void SweepHit()
+	{
+		//if (hit.hit = true) 
+	}
+
+	public void PopupHit()
+	{
+
+	}
+
+	public void PushHit()
+	{
+
+	}
+
+
+
 
 }
