@@ -41,8 +41,9 @@ public class DetectHit : MonoBehaviour
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Popup") && !addedForce)
 			{
 				Debug.Log ("popup");
-				AddKnockback (col.GetComponent<Rigidbody> (), sweepKb, sweepAngle, Vector3.right);
+				AddKnockback (col.GetComponent<Rigidbody> (), popupKb, popupAngle, Vector3.right);
 				addedForce = true;
+				addedForce = false;
 			}
 
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Sweep") && !addedForce)
@@ -50,6 +51,7 @@ public class DetectHit : MonoBehaviour
 				Debug.Log ("Sweep");
 				AddKnockback (col.GetComponent<Rigidbody> (), sweepKb, sweepAngle, Vector3.right);
 				addedForce = true;
+				addedForce = false;
 			}
 
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Push") && !addedForce)
@@ -57,6 +59,7 @@ public class DetectHit : MonoBehaviour
 				Debug.Log ("Push");
 				AddKnockback (col.GetComponent<Rigidbody> (), pushKb, pushAngle, -Vector3.forward);
 				addedForce = true;
+				addedForce = false;
 			}
 
 		}
@@ -67,20 +70,21 @@ public class DetectHit : MonoBehaviour
 			PlayerHealth playerHealth = col.GetComponent<PlayerHealth> ();
 			if (playerHealth != null) 
 			{
-				hit = false;
 
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Popup") && !addedForce)
 			{
 				Debug.Log ("popup");
 				AddKnockback (col.GetComponent<Rigidbody> (), popupKb, popupAngle, Vector3.right);
-				addedForce = true;
+				addedForce = true;		
+				addedForce = false;
 			}
 
-			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Sweep") && !addedForce)
+			if (anim.GetCurrentAnimatorStateInfo (0).IsName ("Sweep") && !addedForce) 
 			{
 				Debug.Log ("Sweep");
 				AddKnockback (col.GetComponent<Rigidbody> (), sweepKb, sweepAngle, Vector3.right);
 				addedForce = true;
+				addedForce = false;
 			}
 
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("Push") && !addedForce)
@@ -88,6 +92,7 @@ public class DetectHit : MonoBehaviour
 				Debug.Log ("Push");
 				AddKnockback (col.GetComponent<Rigidbody> (), pushKb, pushAngle, -Vector3.forward);
 				addedForce = true;
+				addedForce = false;
 			}
 
 		}
@@ -104,7 +109,6 @@ public class DetectHit : MonoBehaviour
 		if (playerHealth != null) 
 		{
 			hit = false;
-			addedForce = false;
 		}
 	}
 

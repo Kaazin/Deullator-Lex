@@ -2845,7 +2845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 10
   sweepAngle: 75
-  popupAngle: 75
+  popupAngle: 45
   pushAngle: 361
   sweepKb: 10
   popupKb: 15
@@ -3145,7 +3145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 10
   sweepAngle: 75
-  popupAngle: 75
+  popupAngle: 45
   pushAngle: 361
   sweepKb: 10
   popupKb: 15
@@ -3450,7 +3450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 10
   sweepAngle: 75
-  popupAngle: 75
+  popupAngle: 45
   pushAngle: 361
   sweepKb: 10
   popupKb: 15
@@ -5647,7 +5647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 10
   sweepAngle: 75
-  popupAngle: 75
+  popupAngle: 45
   pushAngle: 361
   sweepKb: 10
   popupKb: 15
@@ -6079,7 +6079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1646055795
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6090,7 +6090,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 12d282fe931ee4ebb85b72a560c05a82, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
