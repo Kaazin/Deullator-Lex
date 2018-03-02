@@ -51,6 +51,7 @@ public class PlayerCombat : MonoBehaviour
 			Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") == 0)
 		{
 			anim.SetBool ("Push", true);
+			StartCoroutine (ResetPush (time));
 		}
 		
 		//if any attack button is pressed and Vertical axis is pressed in up and Horizontal axis reads nothing
